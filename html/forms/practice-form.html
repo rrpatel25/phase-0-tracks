@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Candy Land</title>
+</head>
+<body>
+	<h1>Help us feed your sweet tooth!</h1>
+
+	<form name="candy_form" action="success.html" method="post">
+	<div>
+		<label>Oh right! My FAVORITE type of candy is-</label>
+		<select name="favorite_candy">
+			<option value="chocolate">Choco-bars</option>
+			<option value="lollypop">Lollies</option>
+			<option value="jollyrancher">Jollies</option>
+			<option value="red_vines">Vines/Twizzies</option>
+			<option value="none">None/I had no childhood</option>
+		</select>
+	</div>
+
+	<div>
+		<textarea name="textarea"
+			rows="10" cols="50">Trick or Treatin' means to me...</textarea>
+	</div>
+
+	<div>
+		<label>Didn't see your favorite candy type above? Name it here!</label>
+		<input type="text" name="other_candy">
+	</div>
+
+	<div>
+		<label>Email Address (Don't worry, we're just making sure you're really real!):</label>
+		<input type="email" name="email">
+	</div>
+
+	<div>
+		<label>Submitted on:</label>
+		<input type="date" name="date">
+	</div>
+
+	<button type="submit">Submit this treat</button>
+
+	</form>
+</body>
+</html>
