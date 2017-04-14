@@ -1,6 +1,6 @@
 body {
 	margin: auto;
-	margin-top: 30px;
+	margin-top: 60px;
 }
 
 #octopus {
@@ -13,13 +13,13 @@ body {
 #glasses {
 	position: absolute;
 	z-index: 1;
-	top: 130px;
+	top: 160px;
 	left: 45.5%;
 }
 
 #hat {
 	position: absolute;
 	z-index: 2;
-	top: 70px;
-	left: 45.5%;
+	top: 1px;
+	left: 41.5%;
 }
