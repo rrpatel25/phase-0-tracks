@@ -7,7 +7,9 @@
 def encrypt(str)
 	index = 0
 	while index < str.length
-		if str[index] != " "
+		if str[index] == 'z'
+			str[index] = 'a'
+		elsif str[index] != " "
 			str[index] = str[index].next
 		end
 		index += 1
@@ -35,7 +37,24 @@ def decrypt(str)
 	str
 end
 
-p "Encrypted password:"
-p encrypt('pass word')
-p "Decrypted password:"
-p decrypt(encrypt('pass word'))
+# Driver Code
+ p "Encrypted password abc should be bcd:"
+ p encrypt('abc')
+ 
+ p "Encrypted password zed should be afe:"
+ p encrypt('zed')
+ 
+ p "Decrypted password bcd should be abc:"
+ p decrypt(encrypt('bcd'))
+
+ p "Decrypted afe should be zed:"
+ p decrypt('afe')
+
+#encrypt("abc") should return "bcd"
+#encrypt("zed") should return "afe"
+#decrypt("bcd") should return "abc"
+#decrypt("afe") should return "zed"
+
+# Decrypting an encryption (nested method call), should be swordfish. 
+p "Decrypting an encryption (nested method call), should be swordfish:"
+p decrypt(encrypt("swordfish"))
