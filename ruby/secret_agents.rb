@@ -38,23 +38,47 @@ def decrypt(str)
 end
 
 # Driver Code
- p "Encrypted password abc should be bcd:"
- p encrypt('abc')
+
+# Psuedo code - Ask secret agent "Do you want to decrypt or encrypt a password?"
+# get user input for encrypt or decrypt
+# Ask for password
+# get user input for password
+# Run password through specified operation (encrypt or decrypt)
+# Print result and exit
+
+puts "Do you want to decrypt or encrypt a password?"
+encrypt_or_decrypt = gets.chomp.downcase
+puts "Enter password"
+pword = gets.chomp
+
+if encrypt_or_decrypt == "encrypt"
+	puts "Encrypted password is #{encrypt(pword)}"
+elsif encrypt_or_decrypt == "decrypt"
+	puts "Decrypted password is #{decrypt(pword)}"
+else
+	puts "I don't know how to #{encrypt_or_decrypt}"
+end
+
+puts "Okay...bye!"
+
+
+# p "Encrypted password abc should be bcd:"
+#  p encrypt('abc')
  
- p "Encrypted password zed should be afe:"
- p encrypt('zed')
+#  p "Encrypted password zed should be afe:"
+#  p encrypt('zed')
  
- p "Decrypted password bcd should be abc:"
- p decrypt(encrypt('bcd'))
+#  p "Decrypted password bcd should be abc:"
+#  p decrypt(encrypt('bcd'))
 
- p "Decrypted afe should be zed:"
- p decrypt('afe')
+#  p "Decrypted afe should be zed:"
+#  p decrypt('afe')
 
-#encrypt("abc") should return "bcd"
-#encrypt("zed") should return "afe"
-#decrypt("bcd") should return "abc"
-#decrypt("afe") should return "zed"
+# #encrypt("abc") should return "bcd"
+# #encrypt("zed") should return "afe"
+# #decrypt("bcd") should return "abc"
+# #decrypt("afe") should return "zed"
 
-# Decrypting an encryption (nested method call), should be swordfish. 
-p "Decrypting an encryption (nested method call), should be swordfish:"
-p decrypt(encrypt("swordfish"))
+# # Decrypting an encryption (nested method call), should be swordfish. 
+# p "Decrypting an encryption (nested method call), should be swordfish:"
+# p decrypt(encrypt("swordfish"))
