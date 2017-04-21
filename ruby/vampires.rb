@@ -31,22 +31,36 @@ else
 	health_insurance = false
 end
 
+if werewolf_name == "Drake Cula"
+	vampire_name = true
+elsif werewolf_name == "Tu Fang"
+	vampire_name = true
+else
+	vampire_name = false
+end
+
 # Werewolf or not analysis
 
 if age && (garlic_bread_question || health_insurance)
-	puts "Probably not a vampire."
+	if vampire_name
+		puts "Definitely a vampire. Howl now."
+	else
+		puts "Probably not a vampire."
+	end
 elsif !age && (!garlic_bread_question || !health_insurance)
-	puts "Probably a vampire."
-elsif !age && (!garlic_bread_question && !health_insurance)
-	puts "Almost certainly a vampire."
-elsif werewolf_name == "Drake Cula" || "Tu Fang"
-	puts "Definitely a vampire. Howl now."
+	if vampire_name
+		puts "Definitely a vampire. Howl now."
+	elsif !age && !garlic_bread_question && !health_insurance
+		puts "Almost certainly a vampire"
+	else
+		puts "Probably a vampire."
+	end
 else
 	puts "Results inconclusive."
 end
 
 puts "Your name is #{werewolf_name}."
-puts "Your age is #{age}."
+puts "Your stated age is #{age}."
 puts "It is #{garlic_bread_question} that you want garlic bread."
 puts "It is #{health_insurance} that you want to enroll in health insurance."
 
