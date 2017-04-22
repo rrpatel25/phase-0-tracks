@@ -1,3 +1,42 @@
-html {
-	background-color: blue;
+body{
+  font-family: Fjalla One;
+  background-image: url(http://cameronmcefee.com/img/work/the-octocat/octocat-de-los-muertos.jpg);
+  color: green;
+}
+
+a:visited{
+  color:red;
+}
+
+header {
+  text-align: center;
+  font-size: 1.25em;
+  color: #50394c;
+  margin: 50px;
+}
+
+.column-1 {
+  display: inline-block;
+  vertical-align: top;
+  width: 45%;
+  height: 80%;
+  padding-left: 5%;
+}
+
+.column-2 {
+  display: inline-block;
+  vertical-align: top;
+  width: 45%;
+  height: 80%;
+  padding-bottom: 20px;
+  padding-left: 5%;
+  float: right;
+}
+footer{
+  text-align:center;
+  padding-top: 20px;
+}
+
+#head{
+  text-shadow: black 3px 3px;
 }
