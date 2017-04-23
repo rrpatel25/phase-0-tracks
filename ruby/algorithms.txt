@@ -1,0 +1,21 @@
+Release 0: Equipping My New Robot
+
+1. Begin by obtaining input from user about which floor number is desired
+2. Process audio input and match to corresponding integer internally
+3. Process integer to orthographic representation of number
+4. See which floor number the user and robot are currently on by matching to visual input from current floor signage
+5. 
+a) if the current floor number is less than the desired floor number, then press the “up” arrow key outside
+b) elsif the current floor number is greater than the desired floor number, then press the “down” button
+c) else state “I need you to tell me which floor number you desire!”
+6. Wait for the elevator doors to open, located under the lit up “up” or “down” arrow that was desired
+7. Move into the elevator with user
+	-if user does not enter the elevator after 10 seconds, break the elevator desire cycle
+8. Identify the button with the orthographic representation of the desired number
+	-if the number is not present, state “You tricked me! There is no floor #{desired number}!”
+	-if the user does not step out of the elevator within 10 sec., break the elevator desire cycle and go into “follow” mode
+9. After identifying the correct button, press the button
+10. Wait until the desired number matches with the lit number of ascending or descending floors
+11. When there is a match between the desired number and lit number of current floor, state “We have arrived on floor #[desired number]!”
+	-if the user does not step out of the elevator within 10 sec., break the elevator desire cycle and go into “follow” mode
+	-else exit the elevator with the user, break the elevator desire cycle, and go into “follow” mode
