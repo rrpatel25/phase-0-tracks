@@ -16,6 +16,25 @@ until employees_to_be_processed == 0
 	garlic_bread_question = gets.chomp
 	puts "Would you like to enroll in the company's health insurance? (y/n)"
 	health_insurance = gets.chomp
+
+	#Checking for Suspicious Allergies
+
+	puts "One last thing. Please name any allergies you may have."
+	puts "When you are finished, just type \"done\" and that's all of it!"
+	allergies = gets.chomp
+
+	until allergies == "done"
+		if allergies == "sunshine"
+			puts "Probably a vampire."
+			break
+		elsif allergies.empty?
+			break
+		else
+			puts allergies
+			puts "Anything else?"
+			allergies = gets.chomp
+		end
+	end
 	
 	# Converting answers to boolean values
 	
@@ -72,5 +91,10 @@ until employees_to_be_processed == 0
 
 employees_to_be_processed = employees_to_be_processed - 1
 puts "Number of employees yet to be processed: #{employees_to_be_processed}"
+
 end
+
+# Plot Twist: JK lol
+puts "Actually, never mind! What do these questions have to do with anything? " +
+	"Let's all be friends."
 	
