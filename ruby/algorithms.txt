@@ -1,0 +1,59 @@
+Release 0: Equipping My New Robot
+
+1. Begin by obtaining input from user about which floor number is desired
+2. Process audio input and match to corresponding integer internally
+3. Process integer to orthographic representation of number
+4. See which floor number the user and robot are currently on by matching to visual input from current floor signage
+5. 
+a) if the current floor number is less than the desired floor number, then press the “up” arrow key outside
+b) elsif the current floor number is greater than the desired floor number, then press the “down” button
+c) else state “I need you to tell me which floor number you desire!”
+6. Wait for the elevator doors to open, located under the lit up “up” or “down” arrow that was desired
+7. Move into the elevator with user
+	-if user does not enter the elevator after 10 seconds, break the elevator desire cycle
+8. Identify the button with the orthographic representation of the desired number
+	-if the number is not present, state “You tricked me! There is no floor #{desired number}!”
+	-if the user does not step out of the elevator within 10 sec., break the elevator desire cycle and go into “follow” mode
+9. After identifying the correct button, press the button
+10. Wait until the desired number matches with the lit number of ascending or descending floors
+11. When there is a match between the desired number and lit number of current floor, state “We have arrived on floor #[desired number]!”
+	-if the user does not step out of the elevator within 10 sec., break the elevator desire cycle and go into “follow” mode
+	-else exit the elevator with the user, break the elevator desire cycle, and go into “follow” mode
+
+Release 1: A Real-Life Algorithm
+An Algorithm for Making a PB&J Sandwich
+1. Obtain a sliced loaf of bread and peanut butter jar from pantry and place on table
+	-if bread or pb are not found, break pbnj cycle, else continue to next step
+2. Obtain jar of jelly from the fridge and place on table
+	-if jar of jelly is not found in fridge, break the pbnj cycle, else continue to next step
+3. Go to cupboard, find and grab a plate to use, and place on table
+	a) -if a plate is not found, check the dishwasher rack for plate
+	-elsif a plate is not found in dishwasher rack, end pbnj cycle, return items placed on table to previous locations
+		-while pbnj items are on the table during the returning cycle, state “Not again! That lazy bum never does his dishes!”
+	-else continue to next step
+4. Grab a knife from the utensils drawer. 
+	- if a knife is not found, follow the steps in 3a. but with search for knife instead of plate
+5. Open the bag of bread by twisting off tie-rope, unwinding the open end of the bag
+6. Reach inside the bag and pull out two slices of bread and place on plate
+	-if there is only one slice, follow *special instructions for making pbnj sandwich
+7. Open both the pb and j jars, one at a time by twisting off caps to the left
+8. Pick up knife off table holding the thick blunt end
+9. While holding onto the knife, stick the other end of the knife into the jelly jar so the thin end is covered by jelly
+10. Lift knife out of jar, with the thin end’s wide surface area being covered with jelly 
+	-while lifting the knife out, it should be parallel with the table so that the jelly goodness remains on the knife
+11. Move the knife to hover over one slice of bread
+12. Rotate knife 180 degrees and gently lower knife onto bread
+13. With the knife, gently spread the jelly around the lighter-colored area of the bread until it is covered with jelly
+	-if more jelly is necessary, repeat steps 9-13, else go to the sink
+14. Go to the sink and turn water on by lifting the faucet handle
+15. Stick knife into the stream of water and move back and forth until the jelly is rinsed off
+16. Rotate knife 180 degrees and repeat step 15
+17. Turn water off by lowering the faucet handle all the way down
+18. Walk back to the table
+19. Repeat steps 9-13, replacing jelly with peanut butter
+20. Go to the sink and throw knife into sink, state “slam dunk!”
+21. Return to table and lift one slice of bread off table
+22. Rotate the held slice of bread 180 degrees, and gently press onto other slice of bread sitting on the plate so peanut butter and jelly converge
+23. State “Your midnight snack is ready, ser!”
+24. Switch to stand-by mode
+	
