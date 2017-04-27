@@ -39,3 +39,72 @@ end
 fifa.map! do |soccer|
   puts soccer.reverse
 end
+
+# Release 2
+
+# Method that deletes any items that meet a certain condition (array)
+integers = [1, 3, 6, 20, 100]
+
+integers.delete_if {|number| number < 5 }
+puts integers
+
+# Method that deletes any items that meet a certain condition (hash)
+numbers = {
+	a: 3,
+	b: 5,
+	c: 20,
+	d: 30
+}
+
+numbers.delete_if {|letter, digit| digit < 5 }
+puts numbers
+
+# Method that filters items that do satisfy a certain condition (array)
+integers = [1, 3, 6, 20, 100]
+
+integers.select! {|number|number < 5 }
+puts integers
+
+# Method that filters items that do satisfy a certain condition (hash)
+numbers = {
+	a: 3,
+	b: 5,
+	c: 20,
+	d: 30
+}
+
+p numbers.select {|letter,digit| digit < 10}
+
+# Different method that filters items that do satisfy a certain condition (array)
+integers = [1, 3, 6, 20, 100]
+
+integers.reject! {|number|number < 5 }
+puts integers
+
+# Different method that filters items that do satisfy a certain condition (hash)
+numbers = {
+	a: 3,
+	b: 5,
+	c: 20,
+	d: 30
+}
+
+p numbers.reject {|letter,digit| digit < 10}
+
+# Method that removes items from array until condition in block evaluates to false, then stops
+integers = [1, 3, 6, 20, 100]
+
+p integers.drop_while { |number| number < 5 }
+p integers
+
+# Method that removes items from hash until condition in block evaluates to false, then stops
+numbers = {
+	a: 3,
+	b: 5,
+	c: 20,
+	d: 30
+}
+
+p numbers.keep_if {|letter,digit| digit < 10}
+
+
