@@ -16,7 +16,7 @@ def fake_name_creator(name_input)
 	reverse_name = reverse_name(name_input)
 	reverse_name.each do |name_part|
 		name_part = rotate_vowels(name_part)
-#		name_part = rotate_consonants(name_part)
+		name_part = rotate_consonants(name_part)
 		changed_name << name_part
 	end
 	changed_name.join(' ')
@@ -47,6 +47,22 @@ end
 # Consonant-changing method (assuming input is always lowercase)
 def rotate_consonants(input)
 	output = ''
+	consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z']
+	rotated_consonants = consonants.rotate
+	input.split('').each do |letter|
+		consonants.each_with_index do |consonant,i|
+			if letter == consonant
+				letter = rotated_consonants[i]
+				break
+			end
+		end
+		output += letter
+	end
+	output
+end
+
+# Upcasing first letter of each name part
+def name_upcaser(input)
 
 end
 
