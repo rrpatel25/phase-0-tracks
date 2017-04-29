@@ -69,19 +69,32 @@ end
 
 # The User Interface
 
+alias_names = []
 puts 'So...what is your real name? Like really REAL name?'
-real_name = gets.chomp.downcase
+name_input = gets.chomp
+real_name = name_input.downcase
+fake_name = ''
 until real_name == 'quit'
 	puts 'Hmm...your new spy name is:'
-	p fake_name_creator(real_name)
-	puts "Don't like it? Enter a name for a different spy name! (or \"quit\" to stop)"
-	real_name = gets.chomp.downcase
+	fake_name = fake_name_creator(real_name)
+	p fake_name
+
+	alias_names << [fake_name, name_input]
+
+	puts "Don't like it? Enter a different name! (or \"quit\" to stop)"
+	name_input = gets.chomp
+	real_name = name_input.downcase
 end
 
+alias_names.each do |fake_names, real_names|
+	puts "#{fake_names} is actually #{real_names}."
+end
 
+# Storing and printing the aliases
 
-
-
+# Each name part is stored in correct key word of alias hash structure
+# When the user enters 'quit', print all of the aliases
+# All of the aliases have original entries
 
 
 
