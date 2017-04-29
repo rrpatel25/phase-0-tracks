@@ -17,12 +17,13 @@ def fake_name_creator(name_input)
 	reverse_name.each do |name_part|
 		name_part = rotate_vowels(name_part)
 		name_part = rotate_consonants(name_part)
+		name_part = name_upcaser(name_part)
 		changed_name << name_part
 	end
 	changed_name.join(' ')
 end
 
-# Name-order reverser (method)
+# Name-order reverser method
 def reverse_name(input)
 	input.split(' ').reverse
 end
@@ -63,10 +64,26 @@ end
 
 # Upcasing first letter of each name part
 def name_upcaser(input)
-
+	input.capitalize!
 end
+
+# The User Interface
 
 puts 'So...what is your real name? Like really REAL name?'
 real_name = gets.chomp.downcase
+until real_name == 'quit'
+	puts 'Hmm...your new spy name is:'
+	p fake_name_creator(real_name)
+	puts "Don't like it? Enter a name for a different spy name! (or \"quit\" to stop)"
+	real_name = gets.chomp.downcase
+end
 
-p fake_name_creator(real_name)
+
+
+
+
+
+
+
+
+
