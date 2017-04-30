@@ -20,7 +20,8 @@ s.replace "zoom"
 
 "the usual".
 s = "the usual"
-s.replace "the usual suspects"
+s.replace "the usual suspects" or
+"the usual".concat(" suspects")
 #=> "the usual suspects"
 
 " suspects".prepend("the usual")
