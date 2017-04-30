@@ -7,10 +7,6 @@
 # True or False: Pets?
 # Max budget amount
 
-def set_username
-	puts "What is your name?"
-	application_details[:username] = gets.chomp
-end
 
 application_details = {
 	username: "", 
@@ -23,7 +19,8 @@ application_details = {
 }
 
 puts "Welcome to the DesignLine Program!"
-set_username
+puts "What is your name?"
+application_details[:username] = gets.chomp
 
 puts "How old are you?"
 application_details[:age] = gets.to_i
@@ -61,7 +58,7 @@ application_details[:budget] = gets.to_i
 
 puts "Let's take a look at what you said: #{application_details}"
 puts "Would you like to make any changes? If so, enter in the item name of " +
-	"what you wish to change, otherwise enter \"none\"!"
+	"what you wish to change, otherwise enter \"none\""
 change_response = gets.chomp
 
 # Making Changes:
@@ -70,21 +67,14 @@ change_response = gets.chomp
 # Or if the user says "none"
 # The program ends
 
-username = 
-age = application_details[:age]
-children = application_details[:children]
-theme = application_details[:theme]
-vintage = 
-pets = application_details[:pets]
-budget = application_details[:budget]
-
-if change_response == "username"
-	set_username
-elsif change_response
+if change_response == "none"
+	true
+else 
+	change_response.to_sym
+	puts "Change #{change_response} to..."
+	new_response = gets.chomp
+	application_details[change_response.to_sym] = new_response
 end
-
-
-	
 
 
 puts "Here is a look at your final submission: #{application_details}"
