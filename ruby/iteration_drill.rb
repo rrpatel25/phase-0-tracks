@@ -1,5 +1,31 @@
 # Array Drills
 
+# array = [1,10,6,5,18]
+
+# def sort(array)
+
+#   counter = 0
+
+#   while counter < array.length
+   
+#     array.each do |x|
+#       if 
+#       x[counter] < x[counter +1]
+#       counter+=1
+#       elsif
+#       x[counter] == x[counter +1]
+#       counter+=1
+#       else 
+#       x[counter], x[counter+1] = x[counter+1], x[counter]
+#       counter+=1
+#       end
+#     end
+#   end
+#     array 
+# end
+
+# p sort(array)
+
 zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
                               "shotgun", "compass", "CB radio", "batteries"]
 
@@ -7,9 +33,87 @@ zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
 # printing each item in the array separated by an asterisk
 # ----
 
+# zombie_apocalypse_supplies.each do |item|
+# 	p item, "*"
+# end
+
 # 2. In order to keep yourself organized, sort your zombie_apocalypse_supplies
 # in alphabetical order. Do not use any special built-in methods.
 # ----
+
+# def alphabetizer(arr)
+# 	i = 0
+# 	swapped = false
+# 	while i < arr.length - 1
+# #	arr.each do |supply|
+# 		a = arr[i]
+# 		b = arr[i+1]
+# 		if a[0] <= b[0]
+# 			i += 1
+# 		else
+# 			swapped = true
+# 			a = arr[i+1]
+# 			b = arr[i]
+# 			i += 1
+# 		end
+# 		if swapped == true
+# 			alphabetizer(arr)
+# 		end
+# 	end
+# 	arr
+# end
+
+
+def alphabetizer(arr)
+	i = 0
+	while i < arr.length-1
+		element = arr[i]
+		compare = arr[i+1]
+		if element[0] <= compare[0]
+			j = 1
+			while element[0] == compare[0] && element.length >= j && compare.length >= j
+				if(element[j] < compare[j])
+					break
+				elsif (element[j] > compare[j])
+					arr[i] = compare
+					arr[i+1] = element
+					break
+				else
+					j = j+1
+				end
+			end
+			i=i+1
+		else
+			arr[i] = compare
+			arr[i+1] = element
+			p arr
+			i = 0
+		end
+		#alphabetizer(arr)
+	end
+	arr
+end
+
+p alphabetizer(zombie_apocalypse_supplies)
+
+# def alphabetizer(arr)
+# 	index = 0
+# 	arr.each do |supply|
+# 		arr.each do |supply2|
+# 			a = supply
+# 			b = supply2
+# 			if supply[0] <= supply2[0]
+# 				true
+# 			else
+# 				a = supply2
+# 				b = supply
+# 			end
+# 		end
+# 	end
+# 	arr
+# end
+
+# p alphabetizer(zombie_apocalypse_supplies)
 
 # 3. Create a method to see if a particular item (string) is in the
 # zombie_apocalypse_supplies. Do not use any special built-in methods.
@@ -20,6 +124,11 @@ zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
 # Remove items in your zombie_apocalypse_supplies in any way you'd like,
 # leaving only 5. Do not use any special built-in methods.
 # ----
+
+# def item_remover(arr)
+
+
+# end
 
 # 5. You found another survivor! This means you can combine your supplies.
 # Create a new combined supplies list out of your zombie_apocalypse_supplies
