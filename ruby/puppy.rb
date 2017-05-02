@@ -4,12 +4,13 @@
 # Puppy ATTRIBUTES (characteristics)
 # Leg Count: 4
 # Friendly: yes
+# Tail: yes
 # Name: varies
 # Color: varies
 # Size: varies
 
 # Puppy METHODS (behavior)
 # Sniff
-# Walk around
+# Walk-around
 # Lick
 # Sleep
