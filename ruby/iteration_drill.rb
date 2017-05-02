@@ -27,7 +27,7 @@
 # p sort(array)
 
 zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
-                              "shotgun", "compass", "CB radio", "batteries"]
+                              "shotgun", "compass", "CB radio", "batteries", "binoculars"]
 
 # 1. Iterate through the zombie_apocalypse_supplies array,
 # printing each item in the array separated by an asterisk
@@ -64,7 +64,7 @@ end
 # end
 
 
-##### def alphabetizer(arr)
+def alphabetizer(arr)
 	i = 0
 	while i < arr.length-1
 		element = arr[i]
@@ -72,7 +72,7 @@ end
 		if element[0] <= compare[0]
 			j = 1
 			while element[0] == compare[0] && element.length >= j && compare.length >= j
-				if(element[j] < compare[j])
+				if (element[j] < compare[j])
 					break
 				elsif (element[j] > compare[j])
 					arr[i] = compare
@@ -86,7 +86,6 @@ end
 		else
 			arr[i] = compare
 			arr[i+1] = element
-			p arr
 			i = 0
 		end
 		#alphabetizer(arr)
@@ -247,6 +246,7 @@ extinct_animals.each do |animal,date|
 		new_list[animal] = date
 	end
 end
+
 
 p new_list
 
