@@ -88,7 +88,22 @@ def alphabetizer(arr)
 			arr[i+1] = element
 			i = 0
 		end
-		#alphabetizer(arr)
+		alphabetizer(arr)
+	end
+	arr
+end
+
+def alphabetizer(arr)
+	n = arr.length - 1
+	index = 0
+	while index < n
+		arr.map { |item| item.downcase }
+		n.times do |number| 
+			if arr[index] > arr[index + 1]
+				arr[index], arr[index + 1] = arr[index + 1], arr[index]
+			end
+		index += 1
+		end
 	end
 	arr
 end
