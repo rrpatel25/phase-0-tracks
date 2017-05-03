@@ -93,21 +93,17 @@ def alphabetizer(arr)
 	arr
 end
 
-def alphabetize(arr)
+def alphabetizer(arr)
 	n = arr.length - 1
 	index = 0
-	swapped = true
-	until index > n
-		arr.map! { |item| item.downcase }
-		n.times do |index| if arr[index] > arr[index + 1]
-			first = arr[index]
-			second = arr[index + 1]
-			arr[index] = second
-			arr[index + 1] = first
-			swapped = true
+	while index < n
+		arr.map { |item| item.downcase }
+		n.times do |number| 
+			if arr[index] > arr[index + 1]
+				arr[index], arr[index + 1] = arr[index + 1], arr[index]
 			end
-		end
 		index += 1
+		end
 	end
 	arr
 end
