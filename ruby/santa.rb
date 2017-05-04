@@ -1,6 +1,6 @@
 class Santa
-	attr_reader :age, :ethnicity
-	attr_accessor :gender
+	attr_reader :ethnicity
+	attr_accessor :gender, :age
 
 	def initialize(gender, ethnicity)
 		puts 'Initializing Santa instance...'
@@ -35,10 +35,12 @@ class Santa
 		@reindeer_ranking.insert(-1, reindeer_name)
 	end
 
+	# Setter method
 	# def gender=(new_gender)
 	# 	@gender = new_gender
 	# end
 
+	# Getter methods
 	# def age
 	# 	@age
 	# end
@@ -48,7 +50,9 @@ class Santa
 	# end
 end
 
-santa = Santa.new("Male", "Canadian")
+# Driver Code
+
+# santa = Santa.new("Male", "Canadian")
 # p santa.speak
 # p santa.eat_milk_and_cookies("chocolate chip")
 # p santa.about
@@ -63,18 +67,32 @@ santa = Santa.new("Male", "Canadian")
 
 # p santas
 
-p santa.celebrate_birthday
-p santa.get_mad_at("Dasher")
-santa.gender = "gender fluid"
-p santa
-p santa.age
-p santa.ethnicity
-p santa.about
+# p santa.celebrate_birthday
+# p santa.get_mad_at("Dasher")
+# santa.gender = "gender fluid"
+# p santa
+# p santa.age
+# p santa.ethnicity
+# p santa.about
 
+# Multiple Santas Program (Release 4)
 
+example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+example_ethnicities = ["black", "Latino", "white", "Japanese-African", 
+	"prefer not to say", "Mystical Creature (unicorn)", "N/A"]
 
+santa_workshop = []
 
+counter = 0
+until counter == 100
+	santa_workshop << Santa.new(example_genders.sample, example_ethnicities.sample)
+	counter += 1
+end
 
+# p santa_workshop
+p santa_workshop.length
+p santa_workshop[0].age = "#{rand(140)}"
+p santa_workshop[0].about
 
 
 
