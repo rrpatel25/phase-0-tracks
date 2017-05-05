@@ -108,6 +108,25 @@ def alphabetizer(arr)
 	arr
 end
 
+zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
+                              "shotgun", "compass", "CB radio", "batteries", "binoculars"]
+
+
+def alphabetizer(arr)
+	swap_occurred = true
+	while swap_occurred == true
+		swap_occurred = false
+		arr.each_with_index do |supply,i| 
+			if i < arr.length - 1
+				if supply.downcase > arr[i + 1].downcase
+					arr[i], arr[i + 1] = arr[i + 1], supply
+				end
+			end
+		end
+	end
+	arr
+end
+
 p alphabetizer(zombie_apocalypse_supplies)
 
 # def alphabetizer(arr)
