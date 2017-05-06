@@ -42,9 +42,11 @@ def grocery_list(grocery_items)
 	p groceries
 end
 
-def 
-
+def add_item(grocery_list, item, quantity = 1)
+	grocery_list[item] = quantity
+	grocery_listg
 end
 
 # Driver Code
-grocery_list("carrots apples cereal pizza")
+list = grocery_list("carrots apples cereal pizza")
+p add_item(list, "lemonade", 2)
