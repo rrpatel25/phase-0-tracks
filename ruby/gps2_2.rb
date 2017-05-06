@@ -44,9 +44,34 @@ end
 
 def add_item(grocery_list, item, quantity = 1)
 	grocery_list[item] = quantity
-	grocery_listg
+	grocery_list
 end
+
+def remove_item(grocery_list, item)
+	grocery_list.delete(item)
+	grocery_list
+end
+
+def new_quantity(grocery_list, item, quantity)
+	grocery_list[item] = quantity
+	grocery_list
+end
+
+def 
+
+end
+
 
 # Driver Code
 list = grocery_list("carrots apples cereal pizza")
+p add_item(list, "ice cream", 4)
 p add_item(list, "lemonade", 2)
+p remove_item(list, "lemonade")
+p new_quantity(list, "ice cream", 1)
+
+
+
+
+
+
+
