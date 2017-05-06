@@ -31,18 +31,18 @@
 # steps: iterate through each key-value pair
 # output: for each key-value pair, printing item + quantity on separate lines
 
-
+DEFAULT_QUANTITY = 1
 
 def grocery_list(grocery_items)
 	grocery_items = grocery_items.split(" ")
 	groceries = {}
 	grocery_items.each do |item|
-		groceries[item] = 1
+		groceries[item] = DEFAULT_QUANTITY
 	end
 	p groceries
 end
 
-def add_item(grocery_list, item, quantity = 1)
+def add_item(grocery_list, item, quantity = DEFAULT_QUANTITY)
 	grocery_list[item] = quantity
 	grocery_list
 end
@@ -57,8 +57,10 @@ def new_quantity(grocery_list, item, quantity)
 	grocery_list
 end
 
-def 
-
+def list_printout(grocery_list)
+	grocery_list.each do |item, quantity|
+		puts "#{item}: #{quantity}"
+	end
 end
 
 
@@ -68,6 +70,7 @@ p add_item(list, "ice cream", 4)
 p add_item(list, "lemonade", 2)
 p remove_item(list, "lemonade")
 p new_quantity(list, "ice cream", 1)
+list_printout(list)
 
 
 
