@@ -73,6 +73,53 @@ p new_quantity(list, "ice cream", 1)
 list_printout(list)
 
 
+# Reflection Post-Challenge####################################################
+
+# What I learned about pseudocode is how much easier writing the code truly is
+# when you break down each individual step of what you're trying to accomplish.
+# There is no trying to remember what something should take-in or what
+# the next step should be, as it is all spelled out from the get-go.
+
+# The tradeoffs for using the hash over the array is all the values
+# need to be specified from the user input as to where the data should go.
+# Working with arrays doesn't pose that problem, although once the data is 
+# specified by using the hash, the rest of the work is much simpler.
+
+# A method returns whatever is on the last line inside of the method, thus
+# one should be attentative of what the actual output of a method is and
+# if it is the output that is desired.
+
+# You can pass strings, integers, arrays, hashes, and even other methods into 
+# the argument of a method.
+
+# Information can be passed between methods by setting the output of a method
+# equal to a variable, and passing that variable into the argument of a 
+# different method (like seen above in lines 68 and 69.)
+
+# The concepts that were solidified are creating methods that take in different
+# inputs and outputs, setting a method output to equal a variable and passing
+# that variable into a different method, and iterating through arrays and 
+# hashes. What is still confusing is knowing what the output will specifically
+# be, for instance knowing if line 52 is superfluous because the output is
+# the same as line 51. I'll check it out now...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
