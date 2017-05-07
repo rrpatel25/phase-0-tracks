@@ -40,12 +40,17 @@
 ####### Release 2: Building the game #######
 
 class WordGuess
+	# attr_reader :
+
 	def initialize(users_word)
-		
+		@word_answer = users_word
+		@guess_count = 0
+		@is_over = false
+		@letters_guessed = []
 	end
 
 	def word_answer
-
+		@word_answer.split('')
 	end
 
 	def check_letter(guessed_letter)
