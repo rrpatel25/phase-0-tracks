@@ -53,13 +53,21 @@ class WordGuess
 		@word_answer.split('')
 	end
 
-	def check_letter(guessed_letter)
+	def has_letter?(guessed_letter)
 		@letters_guessed << guessed_letter
 		word_answer_list.include?(guessed_letter)
 	end
 
 	def player_progress
-
+		hidden_letters = word_answer_list - @letters_guessed
+		progress = word_answer_list.map do |letter|
+			if hidden_letters.include?(letter)
+				"_"
+			else
+				letter
+			end
+		end
+		progress.join(' ')
 	end
 
 	def about
@@ -67,7 +75,8 @@ class WordGuess
 	end
 end
 
-
+# g = WordGuess.new("password")
+# p g.player_progress
 
 
 

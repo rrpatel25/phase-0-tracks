@@ -8,11 +8,11 @@ describe WordGuess do
   end
 
   it "checks to see if the guessed letter matches a letter from the word answer" do
-    expect(game.check_letter("p")).to eq true
+    expect(game.has_letter?("p")).to eq true
   end
 
   it "shows user's progress so far in terms of letters correctly guessed" do
-    # list.delete_item("do the dishes")
+    game.has_letter?("p")
     expect(game.player_progress).to eq "p _ _ _ _ _ _ _"
   end
 
