@@ -41,7 +41,7 @@
 
 class WordGuess
 	def initialize(users_word)
-
+		
 	end
 
 	def word_answer
