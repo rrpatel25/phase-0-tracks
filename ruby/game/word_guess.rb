@@ -44,7 +44,6 @@ class WordGuess
 
 	def initialize(users_word)
 		@word_answer = users_word
-		@is_over = false
 		@letters_guessed = []
 		@available_guesses = @word_answer.length
 	end
@@ -54,27 +53,38 @@ class WordGuess
 	end
 
 	def has_letter?(guessed_letter)
-		@letters_guessed << guessed_letter
-		@available_guesses = @available_guesses - 1
+		if !@letters_guessed.include?(guessed_letter)
+			@letters_guessed << guessed_letter
+			@available_guesses = @available_guesses - 1
+		end
 		word_answer_list.include?(guessed_letter)
 	end
 
+	def hidden_letters
+		word_answer_list - @letters_guessed
+	end
+
 	def player_progress
-		hidden_letters = word_answer_list - @letters_guessed
 		progress = word_answer_list.map do |letter|
 			if hidden_letters.include?(letter)
-				"_"
+				'_'
 			else
 				letter
 			end
 		end
 		progress.join(' ')
 	end
+
+	def is_over
+		if hidden_letters.length == 0
+			'Congratulations, YOU GUESSED THE SECRET WORD!'
+		end
+	end
 end
 
-# g = WordGuess.new("password")
+g = WordGuess.new("password")
 # p g.player_progress
-
+g.is_over
 
 
 

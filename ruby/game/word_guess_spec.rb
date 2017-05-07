@@ -25,5 +25,24 @@ describe WordGuess do
     expect(game.player_progress).to eq "p _ _ _ _ _ _ _"
   end
 
+  it "does not penalize the player for a repeated guess" do
+    game.has_letter?("p")
+    game.has_letter?("p")
+    expect(game.available_guesses).to eq 7
+  end
 
+  it "displays a congratulatory message if the player wins" do
+    game.has_letter?("p")
+    game.has_letter?("a")
+    game.has_letter?("s")
+    game.has_letter?("s")
+    game.has_letter?("w")
+    game.has_letter?("o")
+    game.has_letter?("r")
+    game.has_letter?("d")
+    expect(game.is_over).to eq "Congratulations, YOU GUESSED THE SECRET WORD!"
+  end
+
+  # it "displays a taunting message if the player loses"
+  # end
 end
