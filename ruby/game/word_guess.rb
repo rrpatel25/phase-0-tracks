@@ -78,6 +78,8 @@ class WordGuess
 	def is_over
 		if hidden_letters.length == 0
 			'Congratulations, YOU GUESSED THE SECRET WORD!'
+		elsif @available_guesses == 0
+			"YOU LOSE. Think about what you've done."
 		end
 	end
 end

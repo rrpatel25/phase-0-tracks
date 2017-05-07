@@ -43,6 +43,15 @@ describe WordGuess do
     expect(game.is_over).to eq "Congratulations, YOU GUESSED THE SECRET WORD!"
   end
 
-  # it "displays a taunting message if the player loses"
-  # end
+  it "displays a taunting message if the player loses" do
+    game.has_letter?("p")
+    game.has_letter?("a")
+    game.has_letter?("z")
+    game.has_letter?("s")
+    game.has_letter?("f")
+    game.has_letter?("o")
+    game.has_letter?("t")
+    game.has_letter?("d")
+    expect(game.is_over).to eq "YOU LOSE. Think about what you've done."
+  end
 end
