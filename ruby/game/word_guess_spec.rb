@@ -3,6 +3,10 @@ require_relative 'word_guess'
 describe WordGuess do
   let(:game) { WordGuess.new("password") }
 
+  it "assures the number of guesses available is set correctly" do
+    expect(game.available_guesses).to eq 8
+  end
+
   it "converts the word answer into an array of letters" do
     expect(game.word_answer_list).to eq ["p", "a", "s", "s", "w", "o", "r", "d"]
   end
@@ -11,12 +15,15 @@ describe WordGuess do
     expect(game.has_letter?("p")).to eq true
   end
 
+  it "updates the number of guesses available" do
+    game.has_letter?("p")
+    expect(game.available_guesses).to eq 7
+  end  
+
   it "shows user's progress so far in terms of letters correctly guessed" do
     game.has_letter?("p")
     expect(game.player_progress).to eq "p _ _ _ _ _ _ _"
   end
 
-  # it "retrieves an item by index" do
-  #   expect(list.get_item(0)).to eq "do the dishes"
-  # end
+
 end

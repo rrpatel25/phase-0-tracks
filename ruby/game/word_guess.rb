@@ -40,13 +40,13 @@
 ####### Release 2: Building the game #######
 
 class WordGuess
-	# attr_reader :
+	attr_reader :available_guesses
 
 	def initialize(users_word)
 		@word_answer = users_word
-		@guess_count = 0
 		@is_over = false
 		@letters_guessed = []
+		@available_guesses = @word_answer.length
 	end
 
 	def word_answer_list
@@ -55,6 +55,7 @@ class WordGuess
 
 	def has_letter?(guessed_letter)
 		@letters_guessed << guessed_letter
+		@available_guesses = @available_guesses - 1
 		word_answer_list.include?(guessed_letter)
 	end
 
@@ -68,10 +69,6 @@ class WordGuess
 			end
 		end
 		progress.join(' ')
-	end
-
-	def about
-
 	end
 end
 
