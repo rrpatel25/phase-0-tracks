@@ -45,7 +45,7 @@ class WordGuess
 	def initialize(users_word)
 		@word_answer = users_word
 		@letters_guessed = []
-		@available_guesses = @word_answer.length + 2
+		@available_guesses = @word_answer.length + 3
 	end
 
 	def word_answer_list
