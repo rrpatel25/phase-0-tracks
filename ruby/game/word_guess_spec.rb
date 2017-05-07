@@ -54,4 +54,8 @@ describe WordGuess do
     game.has_letter?("d")
     expect(game.is_over).to eq "YOU LOSE. Think about what you've done."
   end
+
+  it "states whether the game is over or not" do
+    expect(game.game_over?).to eq false
+  end
 end

@@ -45,7 +45,7 @@ class WordGuess
 	def initialize(users_word)
 		@word_answer = users_word
 		@letters_guessed = []
-		@available_guesses = @word_answer.length
+		@available_guesses = @word_answer.length + 2
 	end
 
 	def word_answer_list
@@ -82,14 +82,36 @@ class WordGuess
 			"YOU LOSE. Think about what you've done."
 		end
 	end
+
+	def game_over?
+		if hidden_letters.length == 0
+			true
+		elsif @available_guesses == 0
+			true
+		else
+			false
+		end
+	end
 end
 
-g = WordGuess.new("password")
-# p g.player_progress
-g.is_over
+
+# USER INTERFACE
+
+puts 'Welcome to the WordGuess Game!'
+puts 'Player 1, how about whispering (...fine typing) in a secret word?'
+game = WordGuess.new(gets.chomp)
 
 
+puts "Okay Player 2. Here is the word you're trying to solve."
+p game.player_progress
 
+while !game.game_over?
+	puts 'Guess a letter'
+	game.has_letter?(gets.chomp)
+	p game.player_progress
+end
+
+p game.is_over
 
 
 
