@@ -49,11 +49,16 @@ class WordGuess
 		@letters_guessed = []
 	end
 
-	def word_answer
+	def word_answer_list
 		@word_answer.split('')
 	end
 
 	def check_letter(guessed_letter)
+		@letters_guessed << guessed_letter
+		word_answer_list.include?(guessed_letter)
+	end
+
+	def player_progress
 
 	end
 
