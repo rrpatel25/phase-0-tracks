@@ -22,4 +22,11 @@ function reverse(string) {
 
 
 // Driver Code
-console.log(reverse("hello"));
+var result = reverse("hello");
+
+// Conditional Print
+if (1 == 1) {
+	console.log(result);
+} else {
+	console.log("Huh?");
+}
