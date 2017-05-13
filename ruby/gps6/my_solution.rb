@@ -129,3 +129,27 @@ end
 
 #=======================================================================
 # Reflection Section
+
+# The differences between the two hashes syntaxes shown include the use of strings
+# as a key vs. the use of a symbol as a key and the use of a hash-rocket to link a 
+# key and its value vs. a colon (:) to do the same.
+
+# The 'require_relative' allows a file to access data/information from another file
+# that is within the same parent directory. If a file wishes to access data from 
+# a file that is located in a different directory, then one should use the 'require'
+# keyword instead of require_relative, where the entire pathway would need to be stated.
+
+# Some ways to iterate through a hash include the methods .each, .each with keys, values,
+# or both, and .select.
+
+# 
+
+
+
+
+
+
+
+
+
+
