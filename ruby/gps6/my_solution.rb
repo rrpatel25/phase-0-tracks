@@ -45,9 +45,7 @@ class VirusPredictor
     else
       number_of_deaths = (@population * 0.05).floor
     end
-  
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
-  
   end
 
   # Calulates the speed of speed based on population density of state. Prints out
@@ -118,7 +116,14 @@ end
 # Some ways to iterate through a hash include the methods .each, .each with keys, values,
 # or both, and .select.
 
-# 
+# It took a while to realize virus_effects could be refactored as shown above. A guide 
+# was able to demonstrate how instance variables have global scope throughout the 
+# class, thus having parameters for class methods that utilize the instance variables
+# becomes redundant. This concept is still difficult to grasp completely, but hopefully
+# with further practice this becomes familiar knowledge and practice.
+
+# Through this challenge, I most solidfied the use of iteration, specifically calling
+# specified keys and/or values to utilize a class method.
 
 
 
