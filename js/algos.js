@@ -34,4 +34,16 @@ console.log(longestElement(arr));
 console.log(longestElement(a));
 
 
+// Release 1: Find a key-value match
 
+// Given two objects that are passed into the function.
+// Start with the match being false as there haven't been any matches. 
+// Iterate and retrieve the keys of the two objects that were passed in.
+// If there is ever an instance where the keys of the two objects match AND
+// the values of the two objects match,
+// then set the match variable to true and break the loop.
+// Otherwise, if there is no match, the match will remain as being false.
+// At the end of the function, be sure to return the match variable.
+
+yourFunction({name: "Steven", age: 54}, {name: "Tamir", age: 54});
+yourFunction2({animal: "Dog", legs: 4}, {animal: "Dog", legs: 3});
