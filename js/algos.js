@@ -45,5 +45,23 @@ console.log(longestElement(a));
 // Otherwise, if there is no match, the match will remain as being false.
 // At the end of the function, be sure to return the match variable.
 
-yourFunction({name: "Steven", age: 54}, {name: "Tamir", age: 54});
-yourFunction2({animal: "Dog", legs: 4}, {animal: "Dog", legs: 3});
+var obj1 = {name: "Steven", age: 54};
+var obj2 = {name: "Tamir", age: 54};
+var obj3 = {animal: "Dog", legs: 4}; 
+var obj4 = {animal: "Dog", legs: 3};
+
+function match(arr1, arr2) {
+  var match = false;
+  for (var i in arr1) {
+    for (var j in arr2) {
+      if (i == j && arr1[i] == arr2[j]) {
+      	match = true;
+      	break;
+      }
+    }
+  }
+  return match;
+}
+
+// Driver Code
+
