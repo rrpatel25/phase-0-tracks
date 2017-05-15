@@ -72,3 +72,15 @@ console.log(match(obj1, obj3));
 console.log(match(obj2, obj4));
 console.log(match(obj1, obj4));
 
+
+////////////////////////////////////////////////////////////////////////////////
+
+// Release 2: Generate random test data
+
+//
+
+
+
+
+
+
