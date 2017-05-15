@@ -92,9 +92,24 @@ console.log(match(obj1, obj4));
 // thus signalling the next integer value in the for loop.
 // At the end of the function, be sure to return the result array.
 
+function stringsGenerator(value) {
+  var result = [];
+  var letters = "abcdefghijklmnopqrstuvwxyz";
+  for (var i = value; i > 0; i--) {
+    var randWord = "";
+    var wordLength = Math.floor(Math.random() * 10) + 1;
+    while (randWord.length < wordLength) {
+      var character = letters.charAt(Math.floor(Math.random() * 26));
+      randWord += character;
+    }
+    result.push(randWord);
+  }
+  return result;
+}
 
-
-
+// Driver Code
+console.log(stringsGenerator(3));
+console.log(stringsGenerator(10));
 
 
 
