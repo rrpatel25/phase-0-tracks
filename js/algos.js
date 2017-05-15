@@ -77,7 +77,22 @@ console.log(match(obj1, obj4));
 
 // Release 2: Generate random test data
 
-//
+// The function will take in a value (integer) as its argument.
+// The output will be an array, thus there is a variable assigned with an array.
+// For whatever the integer is and as long as it is greater than 0,
+// a loop will run
+// Within the loop, there is a letters variable containing a string of all the letters
+// There is an empty string word that letters will be added to
+// There is also a variable that states how many letters (1-10) a word should have
+// While the empty word is less than the random number variable,
+// A letter will be randomly chosen from the letters variable
+// and that letter will be added to the empty word string.
+// Letters are randomly added until the while condition is fulfilled.
+// At the end of the condition, the word should be pushed into the output array,
+// thus signalling the next integer value in the for loop.
+// At the end of the function, be sure to return the result array.
+
+
 
 
 
