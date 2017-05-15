@@ -21,17 +21,19 @@ function longestElement(array) {
 		var longest = array[0];
 		for (var i = 1; i < array.length; i++) {
 			if (array[i].length > longest.length){
-				longest = array[i];
-			}
+				longest = array[i]; }
+			// } else if (array[i].length == longest.length) {
+			// 	longest += (", " + array[i]);
+			// }
 		}
 		return longest;
 	}
 }
 
 // Driver Code
-console.log(longestElement(array));
-console.log(longestElement(arr));
-console.log(longestElement(a));
+// console.log(longestElement(array));
+// console.log(longestElement(arr));
+// console.log(longestElement(a));
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -66,11 +68,11 @@ function match(arr1, arr2) {
 }
 
 // Driver Code
-console.log(match(obj1, obj2));
-console.log(match(obj3, obj4));
-console.log(match(obj1, obj3));
-console.log(match(obj2, obj4));
-console.log(match(obj1, obj4));
+// console.log(match(obj1, obj2));
+// console.log(match(obj3, obj4));
+// console.log(match(obj1, obj3));
+// console.log(match(obj2, obj4));
+// console.log(match(obj1, obj4));
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -108,9 +110,55 @@ function stringsGenerator(value) {
 }
 
 // Driver Code
-console.log(stringsGenerator(3));
-console.log(stringsGenerator(10));
+// var test1 = stringsGenerator(1);
+// console.log(test1);
+// var test1Long = longestElement(test1);
+// console.log(test1Long);
 
+// var test2 = stringsGenerator(2);
+// console.log(test2);
+// var test2Long = longestElement(test2);
+// console.log(test2Long);
+
+// var test3 = stringsGenerator(3);
+// console.log(test3);
+// var test3Long = longestElement(test3);
+// console.log(test3Long);
+
+// var test4 = stringsGenerator(4);
+// console.log(test4);
+// var test4Long = longestElement(test4);
+// console.log(test4Long);
+
+// var test5 = stringsGenerator(5);
+// console.log(test5);
+// var test5Long = longestElement(test5);
+// console.log(test5Long);
+
+// var test6 = stringsGenerator(6);
+// console.log(test6);
+// var test6Long = longestElement(test6);
+// console.log(test6Long);
+
+// var test7 = stringsGenerator(7);
+// console.log(test7);
+// var test7Long = longestElement(test7);
+// console.log(test7Long);
+
+// var test8 = stringsGenerator(8);
+// console.log(test8);
+// var test8Long = longestElement(test8);
+// console.log(test8Long);
+
+// var test9 = stringsGenerator(9);
+// console.log(test9);
+// var test9Long = longestElement(test9);
+// console.log(test9Long);
+
+var test10 = stringsGenerator(10);
+console.log(test10);
+var test10Long = longestElement(test10);
+console.log(test10Long);
 
 
 
