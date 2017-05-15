@@ -8,25 +8,35 @@
 // Starting with a counter 1, while it's less than the length of the array,
 // If the element's length at the position of the counter is greater than the current
 // longest element, set the longest element equal to the new element.
+// *UPDATE: Made sure to incorporate instances of longest word being two or more words,
+// by pushing similar length words to an array.*
 // This continues as the counter is incremented by 1 every cycle, while remaining
 // less than the length of the array.
-// At the end, return the longest variable.
+// *At the end, return the array containing longest word(s).*
 
 var array = ["long phrase","longest phrase","longer phrase","longlonglong phrase"];
 var arr = ["this", "is", "tarantula", "encyclopedia", "germ"];
+var ar = ["this", "hey", "power", "tower"];
+var ar2 = ["this", "hey", "power", "tower", "encyclopedia"]
+var ar3 = ["this", "hey", "power", "tower", "encyclopedia", "microorganis"]
+var ar4 = ["this", "hey", "power", "tower", "lower", "mower"];
 var a = [];
 
 function longestElement(array) {
 	if (array.length > 0) {
+		var longArray = [array[0]];
 		var longest = array[0];
 		for (var i = 1; i < array.length; i++) {
+			var longArrLength = longArray.length;
 			if (array[i].length > longest.length){
-				longest = array[i]; }
-			// } else if (array[i].length == longest.length) {
-			// 	longest += (", " + array[i]);
-			// }
+				longest = array[i];
+				longArray.splice(0, longArrLength);
+				longArray.push(array[i]);
+			} else if (array[i].length == longest.length) {
+				longArray.push(array[i]);
+			}
 		}
-		return longest;
+		return longArray.toString();
 	}
 }
 
@@ -34,6 +44,10 @@ function longestElement(array) {
 // console.log(longestElement(array));
 // console.log(longestElement(arr));
 // console.log(longestElement(a));
+// console.log(longestElement(ar));
+// console.log(longestElement(ar2));
+// console.log(longestElement(ar3));
+// console.log(longestElement(ar4))
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -155,10 +169,10 @@ function stringsGenerator(value) {
 // var test9Long = longestElement(test9);
 // console.log(test9Long);
 
-var test10 = stringsGenerator(10);
-console.log(test10);
-var test10Long = longestElement(test10);
-console.log(test10Long);
+// var test10 = stringsGenerator(10);
+// console.log(test10);
+// var test10Long = longestElement(test10);
+// console.log(test10Long);
 
 
 
