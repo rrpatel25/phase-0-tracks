@@ -1,4 +1,4 @@
-// JavaScript - Algorithms
+////////// JavaScript - Algorithms ///////////
 
 
 // Release 0: Find the longest phrase
@@ -34,6 +34,8 @@ console.log(longestElement(arr));
 console.log(longestElement(a));
 
 
+////////////////////////////////////////////////////////////////////////////////
+
 // Release 1: Find a key-value match
 
 // Given two objects that are passed into the function.
@@ -64,4 +66,9 @@ function match(arr1, arr2) {
 }
 
 // Driver Code
+console.log(match(obj1, obj2));
+console.log(match(obj3, obj4));
+console.log(match(obj1, obj3));
+console.log(match(obj2, obj4));
+console.log(match(obj1, obj4));
 
