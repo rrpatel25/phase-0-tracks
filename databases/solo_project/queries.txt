@@ -1,0 +1,54 @@
+1. Display the information in one table (either table is fine).
+COMMAND: SELECT * FROM clients;
+
+OUTPUT:
+1|Luke Skyrunner|33|dysfluency|1|10:00:00 AM
+2|Lando Carlidaughter|45|dysphagia/swallowing|2|11:00:00 AM
+3|Han Solong|52|global aphasia|2|9:00:00 AM
+4|Leia Organs|43|problem w/ trach tube|2|8:00:00 AM
+5|Anakin Skyjogger|4|phonological processes|1|2:00:00 PM
+6|Ben Kenobees|7|gliding|1|3:00:00 PM
+
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+COMMAND: UPDATE clients SET reason_for_visit="cluttering" WHERE name="Luke Skyrunner";
+
+OUTPUT: 
+1|Luke Skyrunner|33|cluttering|1|10:00:00 AM
+
+
+3. Display the information in both tables using one query.
+COMMAND: SELECT * FROM clients, slps WHERE clients.slp_id=slps.id;
+
+OUTPUT: 
+1|Luke Skyrunner|33|cluttering|1|10:00:00 AM|1|Yoda Soda|53|false|5
+2|Lando Carlidaughter|45|dysphagia/swallowing|2|11:00:00 AM|2|Boba Fettish|36|true|13
+3|Han Solong|52|global aphasia|2|9:00:00 AM|2|Boba Fettish|36|true|13
+4|Leia Organs|43|problem w/ trach tube|2|8:00:00 AM|2|Boba Fettish|36|true|13
+5|Anakin Skyjogger|4|phonological processes|1|2:00:00 PM|1|Yoda Soda|53|false|5
+6|Ben Kenobees|7|gliding|1|3:00:00 PM|1|Yoda Soda|53|false|5
+
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+COMMAND: SELECT * FROM clients, slps WHERE clients.slp_id=slps.id AND slps.name="Boba Fettish";
+
+OUTPUT:
+2|Lando Carlidaughter|45|dysphagia/swallowing|2|11:00:00 AM|2|Boba Fettish|36|true|13
+3|Han Solong|52|global aphasia|2|9:00:00 AM|2|Boba Fettish|36|true|13
+4|Leia Organs|43|problem w/ trach tube|2|8:00:00 AM|2|Boba Fettish|36|true|13
+
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+COMMAND: DELETE from clients WHERE name="Anakin Skyjogger";
+
+OUTPUT: (SELECT * FROM clients;)
+1|Luke Skyrunner|33|cluttering|1|10:00:00 AM
+2|Lando Carlidaughter|45|dysphagia/swallowing|2|11:00:00 AM
+3|Han Solong|52|global aphasia|2|9:00:00 AM
+4|Leia Organs|43|problem w/ trach tube|2|8:00:00 AM
+6|Ben Kenobees|7|gliding|1|3:00:00 PM
+
+
+
+
+
