@@ -46,7 +46,19 @@ def create_new_student
 	new_student.last_name = gets.chomp
 	puts "Saving your new student..."
 	new_student.save
-	puts "New student #{new_student.display_full_name} was added!"
+	puts "Your new student #{new_student.display_full_name} was added!"
+end
+
+def create_new_assignment
+	new_assignment = Assignments.new
+	puts "What is your new assignment's name?"
+	new_assignment.assignment_name = gets.chomp
+	puts "When is this new assignment due?"
+	new_assignment.due_date = gets.chomp
+	puts "Saving your new assignment..."
+	new_assignment.save
+	puts "Your new assignment #{new_assignment.assignment_name}, set to be due on "
+		+ "#{new_assignment.due_date}, was added!"
 end
 
 
@@ -62,6 +74,10 @@ user_response = gets.chomp
 
 if user_response.downcase == "add student"
 	create_new_student
+elsif user_response.downcase == "pick a student"
+	# pick student method
+elsif user_response.downcase == "add assignment"
+	create_new_assignment
 # What would you like to do?
 # add student, pick a student, add assignment, or exit
 
