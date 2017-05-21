@@ -8,37 +8,60 @@
 # All of the grades for a given assignment/test (besides student's name)
 
 class Grades
-	def initialize(student_id, assignment_id, assignment_score, completed_date)
-		@student_id = student_id
-		@assignment_id = assignment_id
-		@score = assignment_score
-		@completed_date = completed_date
-	end
 
+	# def initialize
+	# 	@student_id = student_id
+	# 	@assignment_id = assignment_id
+	# 	@score = assignment_score
+	# 	@completed_date = completed_date
+	# end
 end
 
 class Students
-	def initialize(first_name, last_name)
-		@first_name = first_name
-		@last_name = last_name
-	end
+	attr_accessor :first_name, :last_name
 
+	# def initialize
+	# 	@first_name
+	# 	@last_name
+	# end
+	def display_full_name
+		self.first_name + ' ' + self.last_name
+	end
 end
 
 class Assignments
-	def initialize(assignment_name, due_date)
-		@assignment_name = assignment_name
-		@due_date = due_date
-	end
+	attr_accessor :assignment_name, :due_date
+
+	# def initialize
+	# 	@assignment_name
+	# 	@due_date
+	# end
+end
+
+def create_new_student
+	new_student = Students.new
+	puts "What is your student's first name?"
+	new_student.first_name = gets.chomp
+	puts "What is your student's last name?"
+	new_student.last_name = gets.chomp
+	puts "Saving your new student..."
+	new_student.save
+	puts "New student #{new_student.display_full_name} was added!"
 end
 
 
-
-# DRIVER CODE
+# USER INTERFACE
 def initialize_program
 	# Waiting for database connection
 end
 
+puts "Welcome back!"
+puts "What would you like to do?"
+puts "Add Student, Pick a Student, Add Assignment, or Exit"
+user_response = gets.chomp
+
+if user_response.downcase == "add student"
+	create_new_student
 # What would you like to do?
 # add student, pick a student, add assignment, or exit
 
