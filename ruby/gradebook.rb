@@ -31,48 +31,30 @@
 require 'sqlite3'
 require 'faker'
 
-# create sqlite database
-db = SQLite3::Database.new("gradebook.db")
-db.results_as_hash = true
 
-# create_grades_table = <<-SQL
-# 	CREATE TABLE IF NOT EXISTS grades(
-# 	id INTEGER PRIMARY KEY,
-
-
-# SQL
-
-create_students_table = <<-SQL
-	CREATE TABLE IF NOT EXISTS students(
-	id INTEGER PRIMARY KEY,
-	first_name VARCHAR(255),
-	last_name VARCHAR(255)
-	)
-SQL
-
-create_assignments_table = <<-SQL
-	CREATE TABLE IF NOT EXISTS assignments(
-	id INTEGER PRIMARY KEY,
-	assignment_name VARCHAR(255),
-	due_date DATE
-	)
-SQL
-
-db.execute(create_students_table)
-puts "Creating students table"
-db.execute(create_assignments_table)
-puts "Creating assignment table"
 
 
 class Grade
-	attr_accessor :completion_date, 
+	attr_accessor :completion_date, :assignment_score
 
-	def initialize(student_id, assignment_id)
-
+	def initialize(gradebook_db, student_id, assignment_id)
+		@db = gradebook_db
+		@student_id = student_id
+		@assignment_id = assignment_id
 	end
 
-	def display_grades
+	def save
+		@db.execute("INSERT INTO grades (student_id, assignment_id, assignment_score, completion_date) VALUES (?, ?, ?, ?)", [@student_id, @assignment_id, self.assignment_score, self.completion_date])
+	end
 
+	def self.display_grades(gradebook_db, student_id)
+		grades_list = gradebook_db.execute("SELECT * FROM grades WHERE student_id=?", [student_id])
+		if grades_list.length == 0
+			puts "There are no grades available for this student."
+		end
+		grades_list.each do |student_grade|
+			puts "Assignment #{student_grade['assignment_id']}: #{student_grade['assignment_score']}, completed on #{student_grade['completion_date']}"
+		end
 	end
 end
 
@@ -119,7 +101,46 @@ class Assignment
 end
 
 def initialize_program
+		# create sqlite database
+	db = SQLite3::Database.new("gradebook.db")
+	db.results_as_hash = true
 
+	create_grades_table = <<-SQL
+		CREATE TABLE IF NOT EXISTS grades(
+		id INTEGER PRIMARY KEY,
+		student_id INT,
+		assignment_id INT,
+		assignment_score INT,
+		completion_date DATE,
+		FOREIGN KEY (student_id) REFERENCES students(id),
+		FOREIGN KEY (assignment_id) REFERENCES assignments(id)
+		)
+	SQL
+
+	create_students_table = <<-SQL
+		CREATE TABLE IF NOT EXISTS students(
+		id INTEGER PRIMARY KEY,
+		first_name VARCHAR(255),
+		last_name VARCHAR(255)
+		)
+	SQL
+
+	create_assignments_table = <<-SQL
+		CREATE TABLE IF NOT EXISTS assignments(
+		id INTEGER PRIMARY KEY,
+		assignment_name VARCHAR(255),
+		due_date DATE
+		)
+	SQL
+
+	db.execute(create_grades_table)
+	puts "Creating grades table"
+	db.execute(create_students_table)
+	puts "Creating students table"
+	db.execute(create_assignments_table)
+	puts "Creating assignment table"
+
+	db
 end
 
 def create_new_student(gradebook_db)
@@ -149,22 +170,38 @@ def select_student(gradebook_db)
 	puts "Select the student file number you wish to work with"
 	Student.display_students(gradebook_db)
 	chosen_student = gets.chomp
-	puts "Select the assignment file number you wish to enter"
-	Assignment.display_assignments(gradebook_db)
-	chosen_assignment = gets.chomp
-
-
-
+	puts "What do you wish to do with #{chosen_student}?"
+	loop do
+		puts "'Show Grades' or 'Add New Grade' (or 'exit' to return to main menu)"
+		student_menu_input = gets.chomp
+		if student_menu_input == "exit"
+			break
+		else
+			if student_menu_input.downcase == "show grades"
+				Grade.display_grades(gradebook_db, chosen_student)
+			elsif student_menu_input.downcase == "add new grade"
+				puts "Select the assignment file number you wish to update"
+				Assignment.display_assignments(gradebook_db)
+				chosen_assignment = gets.chomp
+				new_grade = Grade.new(gradebook_db, chosen_student, chosen_assignment)
+				puts "What score did the student earn on this assignment?"
+				new_grade.assignment_score = gets.chomp
+				puts "When was the assignment turned in? (e.g., '05/25/2017')"
+				new_grade.completion_date = gets.chomp
+				new_grade.save
+			end
+		end
+	end
 end
 
 
 # USER INTERFACE
 
-# initialize_program
+db = initialize_program
 puts "Welcome back!"
 loop do
 	puts "What would you like to do?"
-	puts "Add Student, Select a Student, Add Assignment, or Exit"
+	puts "'Add Student', 'Select a Student', 'Add Assignment', or 'Exit'"
 	user_response = gets.chomp
 	if user_response.downcase == "exit"
 		break
