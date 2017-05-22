@@ -7,6 +7,63 @@
 
 # All of the grades for a given assignment/test (besides student's name)
 
+		# What would you like to do?
+		# add student, pick a student, add assignment, or exit
+		
+		# add student
+		# input: student's first name, student's last name
+		# output: return to the main menu
+		
+		# pick a student
+		# input: student name
+		# output: saved student score
+		# steps: 1) pick from a list of assignments 2) enter the assignment score
+		# 	3) the completion date of the score 4) save the input
+		
+		# add an assignment
+		# input: assignment's name, assignment's due date
+		# output: return to the main menu
+		
+		# exit
+		# input: type 'exit'
+		# output: quit program
+
+require 'sqlite3'
+require 'faker'
+
+# create sqlite database
+db = SQLite3::Database.new("gradebook.db")
+db.results_as_hash = true
+
+# create_grades_table = <<-SQL
+# 	CREATE TABLE IF NOT EXISTS grades(
+# 	id INTEGER PRIMARY KEY,
+
+
+# SQL
+
+create_students_table = <<-SQL
+	CREATE TABLE IF NOT EXISTS students(
+	id INTEGER PRIMARY KEY,
+	first_name VARCHAR(255),
+	last_name VARCHAR(255)
+	)
+SQL
+
+create_assignments_table = <<-SQL
+	CREATE TABLE IF NOT EXISTS assignments(
+	id INTEGER PRIMARY KEY,
+	assignment_name VARCHAR(255),
+	due_date DATE
+	)
+SQL
+
+db.execute(create_students_table)
+puts "Creating students table"
+db.execute(create_assignments_table)
+puts "Creating assignment table"
+
+
 class Grades
 
 	# def initialize
@@ -29,6 +86,7 @@ class Students
 	end
 
 	def save
+		db.execute("INSERT INTO students (first_name, last_name) VALUES (?, ?)", [first_name, last_name])
 	end
 end
 
@@ -42,6 +100,10 @@ class Assignments
 
 	def save
 	end
+end
+
+def initialize_program
+
 end
 
 def create_new_student
@@ -67,12 +129,14 @@ def create_new_assignment
 	 "set to be due on #{new_assignment.due_date.to_s}, was added!"
 end
 
+def pick_student
 
-# USER INTERFACE
-def initialize_program
-	# Waiting for database connection
 end
 
+
+# USER INTERFACE
+
+# initialize_program
 puts "Welcome back!"
 loop do
 	puts "What would you like to do?"
@@ -87,30 +151,10 @@ loop do
 			# pick student method
 		elsif user_response.downcase == "add assignment"
 			create_new_assignment
-		# What would you like to do?
-		# add student, pick a student, add assignment, or exit
-		
-		# add student
-		# input: student's first name, student's last name
-		# output: return to the main menu
-		
-		# pick a student
-		# input: student name
-		# output: saved student score
-		# steps: 1) pick from a list of assignments 2) enter the assignment score
-		# 	3) the completion date of the score 4) save the input
-		
-		# add an assignment
-		# input: assignment's name, assignment's due date
-		# output: return to the main menu
-		
-		# exit
-		# input: type 'exit'
-		# output: quit program
 		end
 	end
 end	
-
+puts "Even though this book closed, their learning hasn't!"
 
 
 
