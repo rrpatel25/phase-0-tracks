@@ -77,28 +77,29 @@ end
 class Students
 	attr_accessor :first_name, :last_name
 
-	# def initialize
-	# 	@first_name
-	# 	@last_name
-	# end
+	def initialize(gradebook_db)
+		@db = gradebook_db
+	end
+
 	def display_full_name
 		self.first_name + ' ' + self.last_name
 	end
 
 	def save
-		db.execute("INSERT INTO students (first_name, last_name) VALUES (?, ?)", [first_name, last_name])
+		@db.execute("INSERT INTO students (first_name, last_name) VALUES (?, ?)", [first_name, last_name])
 	end
+
 end
 
 class Assignments
 	attr_accessor :assignment_name, :due_date
 
-	# def initialize
-	# 	@assignment_name
-	# 	@due_date
-	# end
+	def initialize(gradebook_db)
+		@db = gradebook_db
+	end
 
 	def save
+
 	end
 end
 
@@ -106,8 +107,8 @@ def initialize_program
 
 end
 
-def create_new_student
-	new_student = Students.new
+def create_new_student(gradebook_db)
+	new_student = Students.new(gradebook_db)
 	puts "What is your student's first name?"
 	new_student.first_name = gets.chomp
 	puts "What is your student's last name?"
@@ -146,15 +147,15 @@ loop do
 		break
 	else
 		if user_response.downcase == "add student"
-			create_new_student
+			create_new_student(db)
 		elsif user_response.downcase == "pick a student"
 			# pick student method
 		elsif user_response.downcase == "add assignment"
-			create_new_assignment
+			create_new_assignment(db)
 		end
 	end
 end	
-puts "Even though this book closed, their learning hasn't!"
+puts "Although this book has closed, their learning hasn't!"
 
 
 
