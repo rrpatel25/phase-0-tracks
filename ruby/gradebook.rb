@@ -27,6 +27,9 @@ class Students
 	def display_full_name
 		self.first_name + ' ' + self.last_name
 	end
+
+	def save
+	end
 end
 
 class Assignments
@@ -36,6 +39,9 @@ class Assignments
 	# 	@assignment_name
 	# 	@due_date
 	# end
+
+	def save
+	end
 end
 
 def create_new_student
@@ -53,12 +59,12 @@ def create_new_assignment
 	new_assignment = Assignments.new
 	puts "What is your new assignment's name?"
 	new_assignment.assignment_name = gets.chomp
-	puts "When is this new assignment due?"
+	puts "When is this new assignment due? (e.g., '05/25/2017')"
 	new_assignment.due_date = gets.chomp
 	puts "Saving your new assignment..."
 	new_assignment.save
-	puts "Your new assignment #{new_assignment.assignment_name}, set to be due on "
-		+ "#{new_assignment.due_date}, was added!"
+	puts "Your new assignment #{new_assignment.assignment_name}, " +
+	 "set to be due on #{new_assignment.due_date.to_s}, was added!"
 end
 
 
@@ -68,37 +74,42 @@ def initialize_program
 end
 
 puts "Welcome back!"
-puts "What would you like to do?"
-puts "Add Student, Pick a Student, Add Assignment, or Exit"
-user_response = gets.chomp
-
-if user_response.downcase == "add student"
-	create_new_student
-elsif user_response.downcase == "pick a student"
-	# pick student method
-elsif user_response.downcase == "add assignment"
-	create_new_assignment
-# What would you like to do?
-# add student, pick a student, add assignment, or exit
-
-# add student
-# input: student's first name, student's last name
-# output: return to the main menu
-
-# pick a student
-# input: student name
-# output: saved student score
-# steps: 1) pick from a list of assignments 2) enter the assignment score
-# 	3) the completion date of the score 4) save the input
-
-# add an assignment
-# input: assignment's name, assignment's due date
-# output: return to the main menu
-
-# exit
-# input: type 'exit'
-# output: quit program
-
+loop do
+	puts "What would you like to do?"
+	puts "Add Student, Pick a Student, Add Assignment, or Exit"
+	user_response = gets.chomp
+	if user_response.downcase == "exit"
+		break
+	else
+		if user_response.downcase == "add student"
+			create_new_student
+		elsif user_response.downcase == "pick a student"
+			# pick student method
+		elsif user_response.downcase == "add assignment"
+			create_new_assignment
+		# What would you like to do?
+		# add student, pick a student, add assignment, or exit
+		
+		# add student
+		# input: student's first name, student's last name
+		# output: return to the main menu
+		
+		# pick a student
+		# input: student name
+		# output: saved student score
+		# steps: 1) pick from a list of assignments 2) enter the assignment score
+		# 	3) the completion date of the score 4) save the input
+		
+		# add an assignment
+		# input: assignment's name, assignment's due date
+		# output: return to the main menu
+		
+		# exit
+		# input: type 'exit'
+		# output: quit program
+		end
+	end
+end	
 
 
 
