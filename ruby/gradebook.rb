@@ -88,7 +88,6 @@ class Students
 	def save
 		@db.execute("INSERT INTO students (first_name, last_name) VALUES (?, ?)", [first_name, last_name])
 	end
-
 end
 
 class Assignments
@@ -99,7 +98,7 @@ class Assignments
 	end
 
 	def save
-
+		@db.execute("INSERT INTO assignments (assignment_name, due_date) VALUES (?, ?)", [assignment_name, due_date])
 	end
 end
 
@@ -118,8 +117,8 @@ def create_new_student(gradebook_db)
 	puts "Your new student #{new_student.display_full_name} was added!"
 end
 
-def create_new_assignment
-	new_assignment = Assignments.new
+def create_new_assignment(gradebook_db)
+	new_assignment = Assignments.new(gradebook_db)
 	puts "What is your new assignment's name?"
 	new_assignment.assignment_name = gets.chomp
 	puts "When is this new assignment due? (e.g., '05/25/2017')"
