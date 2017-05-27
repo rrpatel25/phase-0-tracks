@@ -44,3 +44,38 @@ get '/students/:id' do
   student = db.execute("SELECT * FROM students WHERE id=?", [params[:id]])[0]
   student.to_s
 end
+
+# write a GET route that displays an address
+get '/contact' do
+  "1033 W Van Buren St, Chicago, IL 60607"
+end
+
+# write a GET route that says great job to a person's name (query parameter not route)
+get '/great_job' do
+  name = params[:name]
+  if name
+    "Great job, #{name}!"
+  else
+    "Great job!"
+  end
+end
+
+# write a route that uses route parameters to add two numbers and responds with result
+get '/:first_number/+/:second_number' do
+  (params[:first_number].to_i + params[:second_number].to_i).to_s
+end
+
+# a route that allows the user to search the database in some way
+get '/students/:campus' do
+  students = db.execute("SELECT * FROM students WHERE campus=?", [params[:campus]])
+  response = ""
+  students.each do |student|
+    response << "#{student['age']} year old #{student['name']} is found in this location.<br>"
+  end
+  response
+end
+
+
+
+
+
