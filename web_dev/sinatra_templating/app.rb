@@ -25,3 +25,9 @@ post '/students' do
 end
 
 # add static resources
+
+# add new location feature
+get 'new_location' do
+	@locations = db.execute("SELECT campus FROM students")
+	erb :new_location
+end
