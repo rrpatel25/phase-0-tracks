@@ -6,3 +6,6 @@
 * If needed, might need to search for other resources/ask others for recommendations
 * Having an example file to look at would help ensure proper formatting
 * Save all important resources/bookmark
+
+* W3 schools offered the best tutorial and examples, which was precisely what I needed
+* Talking to others helped in streamlining important resources and information
